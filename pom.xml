@@ -3,4 +3,10 @@
   <groupId>Automation</groupId>
   <artifactId>SonarCloudDemo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <properties>
+  <sonar.projectKey>Adarshcss_SonarCloudDemo</sonar.projectKey>
+  <sonar.organization>adarshcss</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+  <sonar.login>8ebb42962efb37e30c6cc4c5db0b768b9a86f69b</sonar.login>
+</properties>
 </project>
