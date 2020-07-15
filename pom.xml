@@ -1,64 +1,112 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>Automation</groupId>
-  <artifactId>SonarCloudDemo</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <properties>
-  <sonar.projectKey>Adarshcss_SonarCloudDemo</sonar.projectKey>
-  <sonar.organization>adarshcss</sonar.organization>
-  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-  <sonar.login>8ebb42962efb37e30c6cc4c5db0b768b9a86f69b</sonar.login>
-</properties>
-<build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.8.1</version>
-        </plugin>
-        <plugin>
-          <groupId>org.sonarsource.scanner.maven</groupId>
-          <artifactId>sonar-maven-plugin</artifactId>
-          <version>3.6.0.1398</version>
-        </plugin>
-        <plugin>
-          <groupId>org.jacoco</groupId>
-          <artifactId>jacoco-maven-plugin</artifactId>
-          <version>0.8.4</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-  </build>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>Automation</groupId>
+	<artifactId>SonarCloudDemo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<properties>
+		<sonar.projectKey>Adarshcss_SonarCloudDemo</sonar.projectKey>
+		<sonar.organization>adarshcss</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.login>8ebb42962efb37e30c6cc4c5db0b768b9a86f69b</sonar.login>
+		<jacoco.version>0.8.3</jacoco.version>
+		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+		<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+		<sonar.language>java</sonar.language>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
 
-  <profiles>
-    <profile>
-      <id>coverage</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.jacoco</groupId>
-            <artifactId>jacoco-maven-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>prepare-agent</id>
-                <goals>
-                  <goal>prepare-agent</goal>
-                </goals>
-              </execution>
-              <execution>
-                <id>report</id>
-                <goals>
-                  <goal>report</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
+	</dependencies>
+<build>
+<pluginManagement>
+<plugins>
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-compiler-plugin</artifactId>
+<version>3.8.1</version>
+</plugin>
+
+<plugin>
+<groupId>org.sonarsource.scanner.maven</groupId>
+<artifactId>sonar-maven-plugin</artifactId>
+<version>3.6.0.1398</version>
+</plugin>
+
+<plugin>
+<groupId>org.jacoco</groupId>
+<artifactId>jacoco-maven-plugin</artifactId>
+<version>0.8.4</version>
+
+<configuration>
+<skip>${maven.test.skip}</skip>
+<destFile>${basedir}/target/coverage-reports/jacoco-unit.exec</destFile>
+<dataFile>${basedir}/target/coverage-reports/jacoco-unit.exec</dataFile>
+<output>file</output>
+<append>true</append>
+<excludes>
+<exclude>*MethodAccess</exclude>
+</excludes>
+</configuration>
+<executions>
+<execution>
+<id>jacoco-initialize</id>
+<goals>
+<goal>prepare-agent</goal>
+</goals>
+<phase>test-compile</phase>
+</execution>
+<execution>
+<id>jacoco-site</id>
+<phase>verify</phase>
+<goals>
+<goal>report</goal>
+</goals>
+</execution>
+</executions>
+
+</plugin>
+</plugins>
+</pluginManagement>
+</build>
+
+<profiles>
+<profile>
+<id>coverage</id>
+<activation>
+<activeByDefault>true</activeByDefault>
+</activation>
+<build>
+<plugins>
+
+<plugin>
+<groupId>org.jacoco</groupId>
+<artifactId>jacoco-maven-plugin</artifactId>
+<executions>
+<execution>
+<id>prepare-agent</id>
+<goals>
+<goal>prepare-agent</goal>
+</goals>
+</execution>
+<execution>
+<id>report</id>
+<goals>
+<goal>report</goal>
+</goals>
+</execution>
+</executions>
+</plugin>
+</plugins>
+</build>
+</profile>
+</profiles>
+
 </project>
