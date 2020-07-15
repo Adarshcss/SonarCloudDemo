@@ -8,5 +8,6 @@ public class App_Test {
 	public void e1() {
 		DemoClass obj = new DemoClass();
 		 obj.display();
+		 obj.SetDeta(null, 0);
 	}
 }
