@@ -15,6 +15,10 @@ public class DemoClass {
 		System.out.println("name is   " + name + "   rollno is   " + rollno);
 	}
 
+	public void display_ssr() {
+		System.out.println("name is   " + name + "   rollno is   " + rollno);
+	}
+
 	
 	}
 
