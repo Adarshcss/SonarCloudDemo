@@ -16,10 +16,12 @@ getClass(),java.lang.Object#getClass()Ljava/lang/Class;5
 notifyAll()java.lang.Object#notifyAll()V"
 wait()java.lang.Object#wait()V*
 
-hashCode()java.lang.Object#hashCode()IÎ
+hashCode()java.lang.Object#hashCode()I¸
 DemoCode.DemoClassjava.lang.Object*
-	display()DemoCode.DemoClass#display()V(
-<init>()DemoCode.DemoClass#<init>()VP
+	display()DemoCode.DemoClass#display()V2
+display_ssr()!DemoCode.DemoClass#display_ssr()V(
+<init>()DemoCode.DemoClass#<init>()V4
+display_ssr1()"DemoCode.DemoClass#display_ssr1()VP
 SetDeta(Ljava/lang/String;I)0DemoCode.DemoClass#SetDeta(Ljava/lang/String;I)V(
 java.lang.Appendablejava.lang.Object+
 java.lang.AutoCloseablejava.lang.Object>
