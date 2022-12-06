@@ -1,7 +1,0 @@
-organization=adarshcss
-projectKey=Adarshcss_SonarCloudDemo
-serverUrl=https://sonarcloud.io
-serverVersion=8.0.0.9937
-dashboardUrl=https://sonarcloud.io/dashboard?id=Adarshcss_SonarCloudDemo
-ceTaskId=AXNxD-p5JdCKVX98M_pU
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXNxD-p5JdCKVX98M_pU
